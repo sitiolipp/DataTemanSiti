@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "44386191638",
+    "firebase_url": "https://datatemansiti-default-rtdb.firebaseio.com",
+    "project_id": "datatemansiti",
+    "storage_bucket": "datatemansiti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44386191638:android:8173aa90e0964e4b4c2837",
+        "android_client_info": {
+          "package_name": "com.example.datatemansiti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44386191638-ie6nekgo0gg0jjoru75reb9auo42e38h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.datatemansiti",
+            "certificate_hash": "366ba00177081df11dbfc3377bcbcf28355f3565"
+          }
+        },
+        {
+          "client_id": "44386191638-q67crbl8o6locngrbichl3imeaebq9r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCquazI9ZT7MFVFzza5NAkBc0MTZi7EEpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44386191638-q67crbl8o6locngrbichl3imeaebq9r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
