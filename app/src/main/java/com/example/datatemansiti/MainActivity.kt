@@ -1,6 +1,7 @@
 package com.example.datatemansiti
 
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -35,10 +36,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return TextUtils.isEmpty(s)
     }
 
+
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.save -> {
-                // Implement save logic here
+
                 val getUserID = auth!!.currentUser!!.uid
                 val database = FirebaseDatabase.getInstance()
 
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this@MainActivity, "JANGAN ADA YANG KOSONG", Toast.LENGTH_SHORT).show()
                 } else {
                     getReference.child("Admin").child(getUserID).child("DataTemanSiti").push()
-                        .setValue(datakonco(getNama, getAlamat, getNo_hp))
+                        .setValue((datakonco(getNama, getAlamat, getNo_hp, null))
+                        )
                         .addOnCompleteListener(this) {
                             binding.nama.setText("")
                             binding.alamat.setText("")
@@ -64,27 +67,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.logout -> {
-                AuthUI.getInstance().signOut(this)
+                AuthUI.getInstance().signOut(this@MainActivity)
                     .addOnCompleteListener(object : OnCompleteListener<Void> {
-                        override fun onComplete(task: Task<Void>) {
-                            if (task.isSuccessful) {
-                                Toast.makeText(
-                                    this@MainActivity, "Logout berhasil",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                startActivity(Intent(applicationContext, Login::class.java))
-                                finish()
-                            } else {
-                                Toast.makeText(
-                                    this@MainActivity, "Logout gagal",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
+                        override fun onComplete(p0: Task<Void>) {
+                            Toast.makeText(this@MainActivity, "Log out berhasil", Toast.LENGTH_SHORT).show()
+                            intent = Intent(applicationContext, Login::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish()
                         }
                     })
             }
             R.id.show_data -> {
-
+val intent = Intent(this@MainActivity, MyListData::class.java)
+                startActivity(intent)
             }
         }
     }
